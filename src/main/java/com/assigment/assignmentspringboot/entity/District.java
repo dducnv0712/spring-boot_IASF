@@ -1,12 +1,12 @@
 package com.assigment.assignmentspringboot.entity;
 
-import com.assigment.assignmentspringboot.entity.myenum.ObjStatus;
-import com.assigment.assignmentspringboot.entity.myenum.StreetStatus;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,20 +14,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "streets")
-public class Street {
+@Table(name = "districts")
+public class District {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String founding;
-    @ManyToOne
-    @JoinColumn(name = "district_id",nullable = false)
-    private District district;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-    private StreetStatus streetStatus;
-    private ObjStatus status;
+
 }

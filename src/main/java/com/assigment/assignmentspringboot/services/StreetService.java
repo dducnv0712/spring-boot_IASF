@@ -1,7 +1,7 @@
 package com.assigment.assignmentspringboot.services;
 
 import com.assigment.assignmentspringboot.entity.Street;
-import com.assigment.assignmentspringboot.repository.StreetReponsitory;
+import com.assigment.assignmentspringboot.repository.StreetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,25 +11,25 @@ import java.util.Optional;
 @Service
 public class StreetService {
     @Autowired
-    private StreetReponsitory streetReponsitory;
+    private StreetRepository streetRepository;
 
     private List<Street> findAll(){
-        return streetReponsitory.findAll();
+        return streetRepository.findAll();
     }
     private Optional<Street> findById(Long id){
-        return streetReponsitory.findById(id);
+        return streetRepository.findById(id);
     }
     private Street save(Street street){
-        return streetReponsitory.save(street);
+        return streetRepository.save(street);
     }
     private Street update(Street street,Long id){
-        Optional<Street> streetData = streetReponsitory.findById(id);
+        Optional<Street> streetData = streetRepository.findById(id);
         return street;
     }
     private void delete(){
 
     }
     private void destroy(Long id){
-         streetReponsitory.deleteById(id);
+        streetRepository.deleteById(id);
     }
 }
